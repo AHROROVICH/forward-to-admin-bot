@@ -27,7 +27,7 @@ def getMessage():
 @app.route("/")
 def webhook_setup():
     bot.remove_webhook()
-    bot.set_webhook(url=f"https://{os.getenv('HEROKU_APP_NAME')}.herokuapp.com/{BOT_TOKEN}")
+    bot.set_webhook(url=f"https://{os.getenv('RENDER_EXTERNAL_URL')}/{BOT_TOKEN}")
     return "Webhook o‘rnatildi", 200
 
 if __name__ == "__main__":
