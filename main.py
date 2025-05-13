@@ -17,7 +17,8 @@ def forward_to_admin(message):
     try:
         bot.forward_message(ADMIN_ID, message.chat.id, message.message_id)
     except Exception as e:
-        print(f"Xatolik: {e}")
+        bot.send_message(ADMIN_ID, f"Xatolik yuz berdi:\n{e}")  # Adminga xatolik yuborish
+        print(f"Xatolik: {e}")  # Konsolga chiqarish
 
 @app.route('/' + BOT_TOKEN, methods=['POST'])
 def getMessage():
