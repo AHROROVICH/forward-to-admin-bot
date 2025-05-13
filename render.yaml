@@ -1,16 +1,15 @@
 services:
-  - type: web
-    name: forward-to-admin-bot
+  - name: forward-to-admin-bot
+    type: web
     env: python
-    region: oregon
-    branch: main
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn main:app
     envVars:
       - key: BOT_TOKEN
-        value: 7435442778:AAGazu-HC0za77yUk0QJGnKWM6eqKiEuyU8
+        fromSecret: bot_token
       - key: ADMIN_ID
-        value: 6980954709
+        fromSecret: admin_id
       - key: RENDER_EXTERNAL_URL
         fromService:
           type: web
